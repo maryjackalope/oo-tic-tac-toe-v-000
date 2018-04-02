@@ -32,8 +32,12 @@ def move(index, player = "X")
   @board[index] = player
 end
 
+def move(index, character = "X")
+  @board[index] = character
+end
+  
 def position_taken?(index)
-  @board[index]== "X" || @board[index] == "O"
+    @board[index] != "" && @board[index] != " " && @board[index] != nil
 end
 
 def turn
