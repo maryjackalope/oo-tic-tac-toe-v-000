@@ -65,10 +65,11 @@ def current_player
 end
 
 def won?
-  WIN_COMBINATIONS.detect do |combo|
-    @board[combo[0]] == @board[combo[1]] &&
-    @board[combo[1]] == @board[combo[2]] &&
-    position_taken?(index)
+   WIN_COMBINATIONS.detect do |combination|
+      if combination.all? {|index| @board[index] == "X"} ||
+         combination.all? {|index| @board[index] == "O"}
+        combination
+    end
   end
 end
 
